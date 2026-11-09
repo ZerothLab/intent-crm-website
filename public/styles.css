@@ -91,6 +91,18 @@ h1 { font-size: clamp(43px, 4.6vw, 64px); font-weight: 550; line-height: 1.08; l
 .screenshot-link img { width: 100%; height: auto; }
 figcaption { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); background: #fff; padding: 15px 19px; color: var(--muted); font-size: 10px; line-height: 1.7; }
 figcaption>span:last-child { flex-shrink: 0; color: var(--purple); }
+.video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #211c29; }
+.video-frame video:focus-visible { outline-offset: -4px; }
+.video-mark { font-size: 10px; color: var(--purple); }
+.video-links { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-top: 13px; }
+.video-links .text-link { font-size: 12px; }
+.video-links .text-link:last-child { color: var(--muted); font-size: 11px; font-weight: 400; }
+.tutorial-section { padding-block: 80px 72px; border-bottom: 1px solid var(--line); }
+.tutorial-followup { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 17px; }
+.tutorial-followup p { max-width: 680px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.tutorial-followup .text-link { flex-shrink: 0; }
+.tutorial-links { display: flex; flex-wrap: wrap; gap: 4px 22px; flex-shrink: 0; }
+.tutorial-links>a:first-child { font-size: 11px; color: var(--muted); font-weight: 400; }
 .product-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; padding-top: 38px; }
 .point-index { color: #9985ad; font-size: 10px; letter-spacing: 1.3px; display: block; margin-bottom: 12px; }
 .product-points h3 { font-size: 16px; }
@@ -214,6 +226,8 @@ html[lang="zh-CN"] .hero-description { max-width: 530px; line-height: 1.95; }
   figcaption { font-size: 9px; gap: 12px; padding: 13px 15px; }
   figcaption>span:last-child { flex-shrink: 1; min-width: 112px; text-align: right; }
   .screenshot-link { max-height: 450px; }
+  .tutorial-section { padding-block: 58px 48px; }
+  .tutorial-followup { align-items: flex-start; flex-direction: column; gap: 4px; }
   .workflow-section { padding-block: 59px 49px; }
   .workflow-steps { grid-template-columns: 1fr 1fr; gap: 33px 30px; }
   .workflow-steps h3 { min-height: 0; }
@@ -276,6 +290,10 @@ html[lang="zh-CN"] .hero-description { max-width: 530px; line-height: 1.95; }
   .point-index { position: absolute; left: 0; top: 4px; margin: 0; }
   .product-points h3 { font-size: 15px; }
   .product-points p { font-size: 13px; margin-top: 7px; }
+  .tutorial-section { padding-block: 43px 36px; }
+  .video-links { display: block; padding-top: 10px; }
+  .video-links .text-link { display: flex; width: fit-content; font-size: 11px; }
+  .video-frame figcaption>span:last-child { margin-top: 6px; }
   .workflow-section { padding-block: 43px 36px; }
   .workflow-steps { grid-template-columns: 1fr; gap: 22px; padding-top: 4px; }
   .workflow-steps li { display: flex; gap: 20px; padding-top: 21px; }

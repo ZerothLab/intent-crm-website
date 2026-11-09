@@ -1,0 +1,74 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.913
+Turn customer conversations into next steps your team can review.
+
+2
+00:00:04.093 --> 00:00:08.947
+Meet Intent, an open-source CRM built around evidence and human decisions.
+
+3
+00:00:10.750 --> 00:00:12.439
+Start with meeting notes.
+
+4
+00:00:12.619 --> 00:00:18.213
+Preserve what the customer actually said: they need unified records, and
+their budget is not approved yet.
+
+5
+00:00:18.393 --> 00:00:20.759
+Save the evidence to prepare a follow-up.
+
+6
+00:00:22.150 --> 00:00:25.412
+Review the extracted facts against their original quotes.
+
+7
+00:00:25.592 --> 00:00:30.646
+Ask a question in the customer’s context, and follow the answer back to its
+supporting evidence.
+
+8
+00:00:30.826 --> 00:00:33.142
+Your team keeps the final judgment.
+
+9
+00:00:35.150 --> 00:00:36.941
+Open the proposed action.
+
+10
+00:00:37.121 --> 00:00:42.229
+Check the recipient and content, edit the draft, then approve the exact
+revision you reviewed.
+
+11
+00:00:42.409 --> 00:00:46.777
+A suggestion becomes executable work only through an authorized decision.
+
+12
+00:00:48.183 --> 00:00:50.829
+Follow the result back into the customer record.
+
+13
+00:00:51.009 --> 00:00:56.311
+This walkthrough uses fictional data, a deterministic Fixture model, and
+simulated delivery.
+
+14
+00:00:56.491 --> 00:01:00.388
+No real email is sent, and a receipt does not mean a sale is won.
+
+15
+00:01:02.517 --> 00:01:07.849
+Self-host your workspace, choose your model provider, and work in English or
+Simplified Chinese.
+
+16
+00:01:08.029 --> 00:01:11.179
+Your integrations remain under administrator control.
+
+17
+00:01:12.583 --> 00:01:16.283
+Watch the full tutorial, explore the source, and try Intent.
