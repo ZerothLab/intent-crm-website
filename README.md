@@ -8,13 +8,13 @@ This repository owns the public product website. Application code, releases, dep
 
 ## Preview
 
-The site is static HTML, CSS, and JavaScript with no package dependencies, external fonts, or analytics.
+The site is static HTML, CSS, and JavaScript with no package dependencies, external fonts, or analytics. The product overview (`#product-demo`) and getting-started tutorial (`#tutorial`) use local MP4 videos with English and Simplified Chinese narration and WebVTT captions. Switching the website language changes both videos, preserves the playback position when available, and leaves playback paused. Videos do not autoplay or preload on the initial page view.
 
 ```sh
 python3 -m http.server 4178 --bind 127.0.0.1 --directory public
 ```
 
-Open http://127.0.0.1:4178 . Before proposing changes, run `node --check public/site.js` and check both languages, narrow screens, links, keyboard navigation, command copy, and FAQ expansion in a browser.
+Open http://127.0.0.1:4178 . Before proposing changes, run `node --check public/site.js` and check both languages, narrow screens, links, keyboard navigation, command copy, and FAQ expansion in a browser. For video changes, also check play/pause, seeking, captions, full screen, language switching before and during playback, and direct video links. Confirm that the mobile layout remains readable and that video files are not downloaded before playback. Keep recorded Fixture and simulated-delivery labels visible.
 
 ## Contribute
 

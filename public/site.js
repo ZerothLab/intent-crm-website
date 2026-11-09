@@ -3,8 +3,8 @@ const chinese = {
   home: "Intent 首页",
   byline: "ZEROTHLAB 出品",
   nav: "主导航",
-  navProduct: "产品",
-  navWorkflow: "工作方式",
+  navProduct: "产品演示",
+  navTutorial: "使用教程",
   navDeploy: "自行部署",
   githubLabel: "在 GitHub 查看 Intent",
   releaseNote: "开源，为你的工作空间而构建。",
@@ -13,7 +13,7 @@ const chinese = {
   heroTitleTwo: "推动业务向前。",
   heroDescription: "让客户证据变成经过思考的下一步。为团队配备一个始终关联原始资料、尊重人工决策、持续关注实际结果的助手。",
   install: "部署 Intent",
-  seeProduct: "了解产品",
+  seeProduct: "观看演示",
   heroDetail: "Apache 2.0 · 自行部署 · English & 简体中文",
   approach: "Intent 的工作方式",
   asideHeading: "从客户的原话，走向团队的下一步。",
@@ -23,13 +23,28 @@ const chinese = {
   miniFour: "结果，如实记录",
   productEyebrow: "让上下文持续伴随工作",
   productTitle: "一起思考的伙伴。\n共同信赖的业务记录。",
-  productDescription: "私人对话与有权访问的客户记录相连。沿着建议找到原始证据，再直接打开需要处理的业务事项。",
+  productDescription: "观看一段完整的客户工作流程：核对原始证据，审阅下一步建议，并始终由你决定如何行动。",
   frameLabel: "Intent / 知行助手",
   frameStatus: "虚构演示工作空间",
   screenshotLink: "查看完整的 Intent 助手截图",
   screenshotAlt: "Intent 助手的真实应用截图，展示虚构客户对话、原文证据、事实核实及业务记录链接。",
   screenshotCaption: "真实应用截图。使用虚构记录、确定性的 Fixture 演示模型和模拟投递。",
   screenshotHint: "点击图片查看完整截图 ↗",
+  overviewLabel: "产品概览",
+  overviewVideoLabel: "Intent 产品概览视频",
+  tutorialEyebrow: "从一个客户开始",
+  tutorialTitle: "第一次上手，\n一步一步来。",
+  tutorialDescription: "跟随实际操作，了解客户背景、导入来源证据、核实事实，再审阅下一步建议。随时暂停，亲自试一试。",
+  tutorialLabel: "上手教程",
+  tutorialVideoLabel: "Intent 上手操作教程视频",
+  videoDisclosure: "实际应用录屏。使用虚构数据、确定性的 Fixture 演示模型和模拟投递。",
+  videoNarration: "中文配音 · 提供字幕",
+  videoFallback: "直接打开视频",
+  openVideo: "直接打开视频 ↗",
+  videoLanguageHelp: "切换官网语言，即可切换中英文配音和字幕。切换后视频会保持暂停。",
+  watchTutorial: "跟随教程逐步上手",
+  viewScreenshot: "查看应用截图 ↗",
+  readProductGuide: "阅读产品指南",
   pointOneTitle: "让对话有据可循",
   pointOneText: "客户事实始终关联原始引文。人工核实的结果会进入下一次建议的上下文。",
   pointTwoTitle: "从工作台找到下一步",
@@ -104,7 +119,51 @@ const englishDescription = description.content;
 const englishOpenGraphDescription = openGraphDescription.content;
 const copyButton = document.querySelector("#copy-command");
 const copyStatus = document.querySelector("#copy-status");
+const videos = [...document.querySelectorAll("video[data-video]")].map((element) => ({
+  element,
+  captions: element.querySelector("track"),
+  pendingTime: 0,
+  onMetadata: null
+}));
+videos.forEach(({ element }) => {
+  element.addEventListener("play", () => {
+    videos.forEach((other) => {
+      if (other.element !== element) other.element.pause();
+    });
+  });
+});
 let locale = "en";
+
+function updateVideoLanguage(video, language) {
+  const element = video.element;
+  if (element.dataset.videoLanguage === language) return;
+  const position = video.pendingTime || element.currentTime;
+  const captionsVisible = video.captions.track.mode !== "disabled";
+  if (video.onMetadata) element.removeEventListener("loadedmetadata", video.onMetadata);
+  element.pause();
+  const base = `assets/videos/intent-${element.dataset.video}-${language}`;
+  element.dataset.videoLanguage = language;
+  video.captions.src = `${base}.vtt`;
+  video.captions.srclang = language;
+  video.captions.label = language === "zh-CN" ? "简体中文" : "English";
+  video.captions.track.mode = captionsVisible ? "showing" : "disabled";
+  document.querySelectorAll(`[data-video-download="${element.dataset.video}"]`).forEach((link) => {
+    link.href = `${base}.mp4`;
+  });
+  video.pendingTime = position;
+  video.onMetadata = () => {
+    const duration = element.duration;
+    element.currentTime = Number.isFinite(duration) ? Math.min(video.pendingTime, Math.max(0, duration - 0.1)) : video.pendingTime;
+    video.pendingTime = 0;
+    element.preload = "none";
+    video.onMetadata = null;
+  };
+  element.addEventListener("loadedmetadata", video.onMetadata, { once: true });
+  // Only a video that has been watched needs metadata now to restore its position.
+  element.preload = position > 0 ? "metadata" : "none";
+  element.src = `${base}.mp4`;
+  if (position > 0) element.load();
+}
 
 function applyLanguage(nextLocale) {
   locale = nextLocale === "zh-CN" ? "zh-CN" : "en";
@@ -124,6 +183,7 @@ function applyLanguage(nextLocale) {
   description.content = isChinese ? "Intent 是开源、可自行部署的 CRM，连接客户证据、人工审阅、经审批的行动和可核实的结果。" : englishDescription;
   openGraphDescription.content = isChinese ? "理解意图，推动业务向前。以证据、人的判断和可追溯行动为基础的开源 CRM。" : englishOpenGraphDescription;
   copyStatus.textContent = "";
+  videos.forEach((video) => updateVideoLanguage(video, locale));
 }
 
 try {

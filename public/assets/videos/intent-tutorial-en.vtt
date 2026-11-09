@@ -1,0 +1,164 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:04.138
+In this tutorial, we’ll turn meeting notes into a reviewed follow-up.
+
+2
+00:00:04.318 --> 00:00:10.223
+We’re using a prepared demo workspace, fictional customer data, the Fixture
+model, and simulated delivery.
+
+3
+00:00:13.283 --> 00:00:15.601
+Start by checking the workspace mode.
+
+4
+00:00:15.781 --> 00:00:22.715
+Reasoning and extraction both use the deterministic Fixture model here, so
+this walkthrough makes no external model calls.
+
+5
+00:00:22.895 --> 00:00:25.040
+Delivery is also simulated.
+
+6
+00:00:25.220 --> 00:00:29.033
+Real integrations require separate administrator configuration.
+
+7
+00:00:30.417 --> 00:00:33.211
+Open Customer workspace and choose New customer.
+
+8
+00:00:33.391 --> 00:00:38.847
+Enter the company, industry, contact, and email, then select the responsible
+team member.
+
+9
+00:00:39.027 --> 00:00:42.012
+We’ll use a fictional customer called Northstar Studio.
+
+10
+00:00:42.192 --> 00:00:44.635
+Create the record to open its workspace.
+
+11
+00:00:47.483 --> 00:00:50.247
+Choose Add evidence and select Meeting notes.
+
+12
+00:00:50.427 --> 00:00:54.554
+Give the record a useful title, then paste the customer’s original words.
+
+13
+00:00:54.734 --> 00:01:02.008
+These notes say that customer records need to be unified, the budget is
+still unapproved, and the team wants to review a plan by Friday.
+
+14
+00:01:02.188 --> 00:01:03.969
+Save to begin processing.
+
+15
+00:01:07.650 --> 00:01:09.498
+Scroll to customer facts.
+
+16
+00:01:09.678 --> 00:01:12.175
+Each candidate retains its source quote.
+
+17
+00:01:12.355 --> 00:01:17.336
+Check the budget statement against the original notes, then confirm it with
+a verification note.
+
+18
+00:01:17.516 --> 00:01:21.605
+Confirming this fact does not approve a budget or change a deal outcome.
+
+19
+00:01:26.117 --> 00:01:29.781
+Select Ask Intent and create a conversation for this customer.
+
+20
+00:01:29.961 --> 00:01:32.459
+Ask what you should review before following up.
+
+21
+00:01:32.639 --> 00:01:38.866
+The answer stays connected to the authorized customer context, with
+supporting evidence and links to relevant work.
+
+22
+00:01:39.046 --> 00:01:41.478
+This conversation is private to its creator.
+
+23
+00:01:43.717 --> 00:01:46.384
+Return to the customer and open the draft.
+
+24
+00:01:46.564 --> 00:01:50.349
+Review the recipient, subject, message, and original sources.
+
+25
+00:01:50.529 --> 00:01:53.291
+Choose Edit draft if something needs changing.
+
+26
+00:01:53.471 --> 00:01:55.511
+Saving creates a new revision.
+
+27
+00:01:55.691 --> 00:01:59.954
+The version shown here is the exact version an authorized reviewer will
+approve.
+
+28
+00:02:02.983 --> 00:02:06.123
+When the content is ready, approve the displayed revision.
+
+29
+00:02:06.303 --> 00:02:09.321
+The worker processes the action and records the result.
+
+30
+00:02:09.501 --> 00:02:14.701
+Here, the receipt explicitly says simulated delivery completed: no real
+email was sent.
+
+31
+00:02:14.881 --> 00:02:18.697
+The receipt reference and operation ID make this outcome traceable.
+
+32
+00:02:20.750 --> 00:02:25.525
+The customer record now connects the original notes, reviewed facts, action,
+and receipt.
+
+33
+00:02:25.705 --> 00:02:28.269
+A receipt proves delivery status only.
+
+34
+00:02:28.449 --> 00:02:33.317
+When the customer replies, add that reply as new evidence and continue the
+review cycle.
+
+35
+00:02:33.497 --> 00:02:36.577
+Contracts and payments remain separate business records.
+
+36
+00:02:39.917 --> 00:02:42.915
+You’ve completed your first evidence-to-action workflow.
+
+37
+00:02:43.095 --> 00:02:48.300
+Explore the product guide below, or follow the deployment guide to prepare
+your own workspace.
+
+38
+00:02:48.480 --> 00:02:51.817
+Intent is open source under Apache 2.0.
